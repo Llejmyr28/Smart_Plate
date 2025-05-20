@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+    <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css1/maindesign.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="links.html">Learn More</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+   <div class="semiblur"></div>
+    <div class="semiblur"></div>
+
+  <!-- Contact Section -->
+  <div class="container">
+    <div class="contact">
+      <h1>Contact Us</h1>
+      <p class="contact-description">
+        We'd love to hear from you! Reach out for any questions or feedback.
+      </p>
+
+      <div class="contact-info">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=smartplate25@gmail.com" target="_blank">
+          📧 Email us
+        </a>
+        <a href="https://www.facebook.com/share/1VymtFpZFq/" target="_blank">
+          🌐 Visit our Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+
+      const fontSize = localStorage.getItem('fontSize') || 'medium';
+      document.body.style.fontSize = fontSize === 'small' ? '14px' : fontSize === 'large' ? '18px' : '16px';
+    });
+
+    function toggleMenu() {
+      const dropdown = document.getElementById('profileDropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+    
+    <script src="script.js" defer></script>
+    <script type="module" src="js1/authGuard.js"></script>
+    <script src="js1/script.js"></script>
+    <script type="module" src="js1/account.js"></script>
+
+</body>
+
+</html>

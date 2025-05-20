@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="styles3.css">
+    <title>Recipe Details</title>
+      <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css1/maindesign.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        .recipe-details-container{
+            background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+        }
+    .recipe-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 50px auto;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Text section */
+.recipe-info {
+  flex: 1 1 55%;
+}
+
+.recipe-info h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.recipe-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fdfdfd;
+}
+
+.recipe-info ul,
+.recipe-info ol {
+  margin-left: 20px;
+  color: #fffdfd;
+}
+
+/* Square image section */
+.recipe-image {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Force square shape */
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .recipe-details {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .recipe-info,
+  .recipe-image {
+    flex: 1 1 100%;
+  }
+}
+</style>
+</head>
+<body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="links.html">Learn More</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+        <div class="semiblur"></div>
+            <div class="semiblur"></div>
+    <div class="semiblur"></div>
+
+
+    <!-- Recipe Details Container -->
+    <div id="recipe-details-container"></div>
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+    <script type="module" src="js1/authGuard.js"></script>
+    <script src="js1/script.js"></script>
+    <script type="module" src="js1/account.js"></script>
+
+</body>
+</html>

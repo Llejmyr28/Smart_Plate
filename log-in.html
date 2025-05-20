@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartPlate | Home</title>
+      <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css1/style.css" />
+    <link rel="stylesheet" href="css1/style1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css1/overview.css" />
+    <link rel="icon" href="images/circle.ico" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="js1/firebaseauth.js" defer></script>
+    <script src="js1/script.js" defer></script>
+  </head>
+  <body
+    style="
+      background-image: url('images1/loginbg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    "
+  >
+    <header>
+      <h1>SmartPlate</h1>
+    </header>
+
+    <!-- Login Section (Initially Hidden on the Right) -->
+    <div class="login">
+      <div class="container CLASS" style="height: 100%">
+        <div class="left-panel">
+          <h1>WELCOME TO SMARTPLATE</h1>
+          <p>
+            Fuel your body with the right recipes.<br />Discover, Transform, and
+            Nourish!
+          </p>
+          
+        </div>
+        <div
+          class="right-panel"
+          style="display: flex; flex-direction: column; justify-content: center"
+        >
+          <!-- Sign In Form -->
+          <div class="form-container" id="signIn">
+            <form method="post" action="">
+              <h2>USER LOGIN</h2>
+              <div
+                id="signInMessage"
+                class="messageDiv"
+                style="display: none"
+              ></div>
+              <div class="input-group">
+                <i class="fas fa-envelope icon-envelope"></i>
+                <input type="text" id="email" placeholder="Email" required />
+              </div>
+              <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="options">
+                <label
+                  ><input type="checkbox" id="rememberMe" /> Remember</label
+                >
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn" id="submitSignIn">Login</button>
+              <p class="signup-link">
+                Don't have an account?
+                <button type="button" id="signUpButton">Sign Up</button>
+              </p>
+            </form>
+          </div>
+
+          <!-- Sign Up -->
+          <div class="form-container" id="signup" style="display: none">
+            <form method="post" action="">
+              <h2>REGISTER</h2>
+              <div
+                id="signUpMessage"
+                class="messageDiv"
+                style="display: none"
+              ></div>
+              <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="fName" placeholder="Username" required />
+              </div>
+              <div class="input-group" id="emailInputGroup">
+                <i class="fas fa-envelope icon-envelope"></i>
+                <input type="text" id="rEmail" placeholder="Email" required />
+              </div>
+              <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="rPassword"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <button type="button" class="btn" id="submitSignUp">
+                Sign Up
+              </button>
+              <p class="signup-link">
+                Already have an account?
+                <button type="button" id="signInButton">Sign In</button>
+              </p>
+            </form>
+          </div>
+
+          <!-- Forgot Password -->
+          <div
+            class="form-container"
+            id="forgotPasswordForm"
+            style="display: none"
+          >
+            <h2>RESET PASSWORD</h2>
+            <form method="post" action="">
+              <div
+                id="forgotPasswordMessage"
+                class="messageDiv"
+                style="display: none"
+              ></div>
+              <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  id="resetEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <button type="button" class="btn" id="submitForgotPassword">
+                Send Reset Link
+              </button>
+              <p class="signup-link">
+                Remember your password?
+                <button type="button" id="backToSignIn">Back to Login</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

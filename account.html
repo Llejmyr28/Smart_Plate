@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css1/maindesign.css">
+
+
+</head>
+<body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="links.html">Learn More</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+        <div class="semiblur"></div>
+    <div class="semiblur"></div>
+
+
+<div class="profile-container1">
+  
+  <div class="profile-left">
+    <h1 class="header-title">SmartPlate</h1>
+    <img id="profileImage" class="profile-pic" />
+    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="uploadImage()">
+    <button class="change-btn" onclick="triggerUpload()">Change Profile Picture</button>
+  </div>
+
+  <div class="profile-right">
+    <h2>Profile Information</h2>
+
+    <label for="name">Username:</label>
+    <input type="text" id="name">
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" readonly>
+
+    <label for="bio">Bio:</label>
+    <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+
+    <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+
+  <script type="module">
+  import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+  const db = getFirestore();
+  const auth = getAuth();
+
+  let currentUserUID = null;
+  onAuthStateChanged(auth, (user) => {
+    if (user) currentUserUID = user.uid;
+  });
+
+  window.triggerUpload = () => document.getElementById('fileInput').click();
+
+  window.uploadImage = () => {
+    const file = document.getElementById('fileInput').files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const maxWidth = 300;
+        const scale = maxWidth / img.width;
+        canvas.width = maxWidth;
+        canvas.height = img.height * scale;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.6);
+        document.getElementById('profileImage').src = compressedBase64;
+
+        // Save to Firestore
+        if (currentUserUID) {
+          const userRef = doc(db, "users", currentUserUID);
+          updateDoc(userRef, { profileBase64: compressedBase64 })
+            .then(() => console.log("Profile image updated."))
+            .catch((err) => console.error("Error saving image:", err));
+        }
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+</script>
+
+  <!-- Firebase Modules -->
+  <script type="module" src="js1/firebaseConfig.js"></script>
+  <script type="module" src="js1/account.js"></script>
+  <script type="module" src="js1/firebaseauth.js"></script>
+  <script src="js1/script.js"></script>
+  <script type="module" src="js1/authGuard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+html,
+body {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.transition-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.overview {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+}
+
+.get-started-btn {
+  background-color: #fff;
+  color: #6e8efb;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.get-started-btn:hover {
+  background-color: #f1f1f1;
+}
+
+#backToWelcome {
+  background-color: #ccc;
+  color: #333;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .overview,
+  .login {
+    width: 100%;
+  }
+
+  .transition-wrapper.show-login .overview {
+    transform: translateX(-100%);
+  }
+
+  .transition-wrapper.show-login .login {
+    transform: translateX(-100%);
+  }
+}
+.welcomebtn {
+  background-color: #45a049;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.welcomebtn :hover {
+  background-color: #3e8e41;
+}

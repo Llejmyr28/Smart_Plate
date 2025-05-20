@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Healthy Living Guide: Learn about BMI, healthy eating, and more!"
+    />
+    <title>Healthy Living - BMI & Nutrition Guide</title>
+      <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css1/maindesign.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  </head>
+
+  <body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="links.html">Learn More</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+    <div class="semiblur"></div>
+        <div class="semiblur"></div>
+
+    <div class="container">
+      <div class="main-content">
+        THE GREATEST<br /><small>WEALTH IS HEALTH</small>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search. (e.g salt, pork, etc.)"
+          oninput="showSuggestions(this.value)"
+        />
+        <button onclick="search()"><img src="images1\searchicon.png" alt="icon" style="width: 20px; height: 20px; vertical-align: middle;"></button>
+      </div>
+
+      <h1>The Importance of Healthy Eating</h1>
+      <p class="introduction">
+        A healthy diet consists of nutrient-rich foods like fruits, vegetables,
+        whole grains, lean proteins, and healthy fats. Choosing whole,
+        unprocessed foods supports a healthy gut and overall well-being.
+      </p>
+
+      <div class="bottomsec">
+        If your BMI is underweight, consider increasing your portion sizes and
+        caloric intake with our tailored, nutrient-rich recipes.
+      </div>
+
+      <div class="bmi-info-box" onclick="showBMICategories()">
+        <h2>📊 What Do BMI Categories Mean?</h2>
+        <p>
+          Click to learn about Underweight, Normal, Overweight, and Obese
+          levels.
+        </p>
+      </div>
+
+      <div class="bmi-category-boxes">
+        <div
+          class="bmi-box"
+          style="background-color: #2196f3"
+          onclick="showBMIDetail('underweight')"
+        >
+          Underweight
+        </div>
+        <div
+          class="bmi-box"
+          style="background-color: #4caf50"
+          onclick="showBMIDetail('normal')"
+        >
+          Normal
+        </div>
+        <div
+          class="bmi-box"
+          style="background-color: #ffc107; color: #fdfdfd"
+          onclick="showBMIDetail('overweight')"
+        >
+          Overweight
+        </div>
+        <div
+          class="bmi-box"
+          style="background-color: #ff5722"
+          onclick="showBMIDetail('obese1')"
+        >
+          Obese
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">&copy; 2025 SmartPlate Project</footer>
+
+       <script type="module" src="js1/authGuard.js"></script>
+     <script type="module" src="js1/account.js"></script>
+
+    <script src="script.js" defer></script>
+    <script src="js1/script.js"></script>
+
+  </body>
+</html>

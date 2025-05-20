@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles2.css" />
+    <title>Search Results</title>
+      <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css1/maindesign.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+/* Container for recipe search results */
+#results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Individual recipe card */
+.recipe-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Recipe image */
+.recipe-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Recipe details */
+.recipe-details {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Recipe name */
+.recipe-details a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* Ingredients list */
+.recipe-ingredients {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Recipe Details Page */
+#recipe-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.recipe-details .recipe-image img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.recipe-info {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.recipe-info h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.recipe-info ul,
+.recipe-info ol {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.recipe-info p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* ------------------ RESPONSIVE STYLES ------------------ */
+@media (max-width: 768px) {
+  #results-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .recipe-image {
+    height: 150px;
+  }
+
+  .recipe-details a {
+    font-size: 16px;
+  }
+
+  .recipe-ingredients {
+    font-size: 13px;
+  }
+
+  #recipe-details-container {
+    padding: 20px;
+  }
+
+  .recipe-info {
+    padding: 15px;
+  }
+
+  .recipe-info h2 {
+    font-size: 20px;
+  }
+
+  .recipe-info p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #results-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .recipe-image {
+    height: 130px;
+  }
+
+  .recipe-details a {
+    font-size: 15px;
+  }
+
+  .recipe-ingredients {
+    font-size: 12px;
+  }
+
+  #recipe-details-container {
+    padding: 15px;
+  }
+
+  .recipe-info h2 {
+    font-size: 18px;
+  }
+
+  .recipe-info p {
+    font-size: 13px;
+  }
+}
+</style>
+
+  </head>
+<body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="links.html">Learn More</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+        <div class="semiblur"></div>
+    <div class="semiblur"></div>
+    <div class="semiblur"></div>
+
+      <div class="suggestions-container" id="suggestionsContainer">
+        <ul id="suggestionsList">
+            <!-- Suggestions will be added dynamically here -->
+        </ul>
+    </div>
+    <div id="results-container"></div>
+
+    <script src="script.js" defer></script>
+    <script type="module" src="js1/authGuard.js"></script>
+    <script src="js1/script.js"></script>
+    <script type="module" src="js1/account.js"></script>
+
+  </body>
+</html>

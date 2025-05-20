@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health & Nutrition Resources - Your Food Suggestion Website</title>
+    <link rel="icon" href="images1/circle.ico" type="image/x-icon">
+
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css1/maindesign.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <style>
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+
+      
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+    }
+
+    .resource-section {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 6px solid #81c784;
+      border-radius: 8px;
+      position: relative;
+
+      
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      color: #2aca40;
+      border-bottom: 1px dashed #b2dfdb;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .resource-item {
+      margin-bottom: 16px;
+    }
+
+    .resource-link {
+      color: #2dc334;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+
+    .resource-description {
+      color: #ffffff;
+      font-size: 0.95em;
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
+    footer {
+      background-color: #3FA34D;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body style="display: none">
+    <nav class="navbar">
+      <div class="logo">SmartPlate</div>
+      <div class="menu-options">
+        <a href="index1.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="health-care-results.html">BMI</a>
+      </div>
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()"><img src="images1\user.png" alt="icon" style="width: 40px; height: 40px; vertical-align: middle;"></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="account.html">Account</a>
+          <a href="#" onclick="event.preventDefault(); logout();">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+        <div class="semiblur"></div>
+    <div class="semiblur"></div>
+     <div class="semiblur"></div>
+
+  <header>
+    <h1>🥗 Explore Health & Nutrition Resources</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <p>Here are some links to reputable organizations and resources in the Philippines that provide valuable information about health, nutrition, and well-being. We encourage you to explore these resources to learn more and make informed choices.</p>
+    </div>
+
+    <section class="resource-section">
+      <h2><img src="https://cdn-icons-png.flaticon.com/512/415/415682.png" alt="Apple Icon" />Government Health Organizations</h2>
+      <div class="resource-item">
+        <h3><a href="https://doh.gov.ph/" class="resource-link" target="_blank">Department of Health (DOH) - Philippines</a></h3>
+        <p class="resource-description">The official website of the Philippine Department of Health. Find information on national health programs, disease prevention, healthy lifestyle guidelines, and more.</p>
+      </div>
+      <div class="resource-item">
+        <h3><a href="https://www.fda.gov.ph/" class="resource-link" target="_blank">Food and Drug Administration (FDA) - Philippines</a></h3>
+        <p class="resource-description">Learn about food safety regulations, food labeling, and consumer advisories related to food products in the Philippines.</p>
+      </div>
+    </section>
+
+    <section class="resource-section">
+      <h2><img src="https://images.icon-icons.com/881/PNG/512/Carrot_icon-icons.com_68773.png" alt="Carrot Icon" />Professional Organizations</h2>
+      <div class="resource-item">
+        <h3><a href="https://pan-incorporated.org/" class="resource-link" target="_blank">The Philippine Association of Nutrition, Inc.</a></h3>
+        <p class="resource-description">The official organization for registered nutritionists and dietitians in the Philippines. Find resources related to the profession and possibly locate qualified professionals.</p>
+      </div>
+    </section>
+
+    <section class="resource-section">
+      <h2><img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="Broccoli Icon" />Educational Institutions & Research</h2>
+      <div class="resource-item">
+        <h3><a href="https://che.upd.edu.ph/" class="resource-link" target="_blank">University of the Philippines Diliman - College of Home Economics</a></h3>
+        <p class="resource-description">Explore the College of Home Economics at UP Diliman for research and information related to food science and nutrition in the Philippine context.</p>
+      </div>
+      <div class="resource-item">
+        <h3><a href="https://www.ust.edu.ph/pharmacy/" class="resource-link" target="_blank">University of Santo Tomas - Faculty of Pharmacy</a></h3>
+        <p class="resource-description">UST's Faculty of Pharmacy provides research on food science, nutrition, and the medicinal properties of plants in the Philippines.</p>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      <p><strong>Important Disclaimer:</strong> The information provided on this website is for general food suggestion purposes based on user-inputted ingredients and BMI calculations. The external links above are for informational use only. This website is not a substitute for professional medical or nutritional advice. Please consult a qualified healthcare provider for personalized guidance.</p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+    <script type="module" src="js1/authGuard.js"></script>
+    <script src="js1/script.js"></script>
+    <script type="module" src="js1/account.js"></script>
+
+
+</body>
+</html>
