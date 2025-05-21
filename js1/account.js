@@ -52,7 +52,12 @@ window.saveProfile = async function () {
     profileImage: image,
   });
 
-  alert("Profile saved!");
+  Swal.fire({
+    title: "Profile Saved",
+    text: "Your profile has been saved!",
+    icon: "success",
+    confirmButtonText: "OK",
+  });
 };
 
 // Upload & Zoom logic
